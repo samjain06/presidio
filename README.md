@@ -27,8 +27,13 @@ This is app uses following libraries and technologies:
 
 Some of the improvements worth working towards are:
 
-1. Using NLP for expanding normazlization techniques
-2. Need to check if asynchronous results in better performance than multi-threading
-3. Input validation
-4. Implementing caching for answers
-5. Need to experiement with different pipeline models or fine-tune a custom one
+- Using NLP for expanding normazlization techniques
+- Need to check if asynchronous results in better performance than multi-threading
+- Input validation
+- Implementing caching for answers
+- Need to experiement with different pipeline models or fine-tune a custom one
+
+## Issues
+
+- The app is not able to answer questions that are not present in the content. This is because the model is trained on SQuAD2.0 dataset which dot not have answer for all the questions. This can be improved by using a model that can generate answers instead of extracting them from the content.
+- The app might not work on cross-platforms. This is because for Streamlit Cloud to work, the app must be able to run on Debian. As I am using Selenium, it requires chromium & chromedriver to be installed (mentioned in packages.txt). This may or may not work on Windows. However, I have tested with chrome & chromedriver On Windows along with webdriver-manager library. For more info, take a look at this repo: https://github.com/Franky1/Streamlit-Selenium/tree/main
