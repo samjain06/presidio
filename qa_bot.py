@@ -17,8 +17,8 @@ def initialize_question_answering_pipeline():
 
 def normalize_context(context):
     # Reconstruct the normalized context
-    normalized_context = re.sub(r'[\n\s]+', ' ', context)
-    return normalized_context
+    normalized = re.sub(r'[\n\s]+', ' ', context)
+    return normalized
 
 
 def setup_selenium():
@@ -44,7 +44,7 @@ def extract_info_from_link(link):
         time.sleep(3)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         text = soup.get_text()
-        cleaned_text = normalize_context(text)
+        cleaned_text = re.sub(r'[\n\s]+', ' ', context)
         return cleaned_text
 
     except Exception as e:
