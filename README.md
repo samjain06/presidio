@@ -30,4 +30,3 @@ Some of the improvements worth working towards are:
 3. Input validation
 4. Implementing caching for answers
 5. Need to experiement with different pipeline models or fine-tune a custom one
-6. 
