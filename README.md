@@ -3,6 +3,7 @@
 ## Deployment
 This app can be run by forking and cloning this repo and running below commands:
 
+`streamlit run qa_bot.py`
 
 This app is deployed using Streamlit service at: [QABot](https://question-answer-bot.streamlit.app/)
 
