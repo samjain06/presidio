@@ -1,15 +1,12 @@
 import re
 import time
-import streamlit as st
-
-from transformers import pipeline
 from concurrent.futures import ThreadPoolExecutor
+
+import streamlit as st
 from bs4 import BeautifulSoup
 from googlesearch import search
-
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+from transformers import pipeline
 
 
 def initialize_question_answering_pipeline():
@@ -101,7 +98,7 @@ def main():
                 # Answer the question using the question-answering pipeline
                 answer = qa_pipeline(question=question, context=context)
                 st.write('Answer:', answer['answer'])
-                score = round(answer['score']*100, 2)
+                score = round(answer['score'] * 100, 2)
                 st.write('Score:', score)
 
 
