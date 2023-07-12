@@ -2,7 +2,7 @@
 
 ## Deployment
 
-This app is deployed using Streamlit service at: [QABot](https://)
+This app is deployed using Streamlit service at: [QABot](https://question-answer-bot.streamlit.app/)
 
 ## Introduction
 
