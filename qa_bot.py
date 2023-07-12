@@ -45,6 +45,7 @@ def extract_info_from_link(link):
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         text = soup.get_text()
         cleaned_text = re.sub(r'[\n\s]+', ' ', context)
+        print('*****CLEANED TEXT IN EXTRACT*****', cleaned_text)
         return cleaned_text
 
     except Exception as e:
@@ -57,7 +58,7 @@ def search_web(topic):
     # Search the web
     query = f'{topic}'
     search_results = list(search(query, num_results=10, lang='en'))
-
+    print('*****SEARCH RESULTS IN SEARCH_WEB*****', search_results)
     # Extract the URLs from the search results
     info = []
     with ThreadPoolExecutor() as executor:
@@ -69,7 +70,7 @@ def search_web(topic):
                     info.append(snippet)
             except Exception as e:
                 pass
-
+    print('*****INFO IN SEARCH_WEB*****', info)
     return info
 
 
@@ -82,7 +83,7 @@ def main():
     if topic != '' and topic is not None:
         # Search the web and extract information
         info = search_web(topic)
-
+        print('*****INFO IN MAIN*****', info)
         # Initialize the question-answering pipeline
         qa_pipeline = initialize_question_answering_pipeline()
 
