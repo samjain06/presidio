@@ -17,7 +17,7 @@ def initialize_question_answering_pipeline():
 
 def normalize_context(context):
     # Reconstruct the normalized context
-    normalized_context = re.sub(r'[\n\s]+', ' ', text)
+    normalized_context = re.sub(r'[\n\s]+', ' ', context)
     return normalized_context
 
 
