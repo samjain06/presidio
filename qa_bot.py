@@ -2,12 +2,13 @@ import re
 import time
 import streamlit as st
 
+from transformers import pipeline
 from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
 from googlesearch import search
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from transformers import pipeline
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -30,7 +31,7 @@ def setup_selenium():
     chrome_options.add_argument('--disable-notifications')
     chrome_options.add_argument('--disable-infobars')
     chrome_options.add_argument('--disable-extensions')
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
     return driver
 
 
@@ -44,7 +45,7 @@ def extract_info_from_link(link):
         time.sleep(3)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         text = soup.get_text()
-        cleaned_text = re.sub(r'[\n\s]+', ' ', context)
+        cleaned_text = normalize_context(text)
         print('*****CLEANED TEXT IN EXTRACT*****', cleaned_text)
         return cleaned_text
 

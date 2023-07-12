@@ -1,6 +1,8 @@
 # QUESTION-ANSWERING BOT
 
 ## Deployment
+This app can be run by forking and cloning this repo and running below commands:
+
 
 This app is deployed using Streamlit service at: [QABot](https://question-answer-bot.streamlit.app/)
 
